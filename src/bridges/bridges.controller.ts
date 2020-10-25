@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { BridgesService } from './bridges.service';
 import { CreateBridgeDto } from './dto/create-bridge.dto';
 import { Bridge } from './schemas/bridge.schema';
@@ -12,8 +12,12 @@ export class BridgesController {
     await this.tokensService.create(createTransactionDto);
   }
 
-  @Get()
+  @Get('all')
   async findAll(): Promise<Bridge[]> {
     return this.tokensService.findAll();
+  }
+  @Get('holder')
+  async find(@Query('from') from: string, @Query('token') token: string):Promise<Bridge[]>{
+    return this.tokensService.find({from:from, token:token});
   }
 }  

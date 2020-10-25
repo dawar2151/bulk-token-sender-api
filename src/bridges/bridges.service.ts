@@ -16,5 +16,7 @@ export class BridgesService {
   async findAll(): Promise<Bridge[]> {
     return this.tokenModel.find().exec();
   }
-  
+  async find(req): Promise<Bridge []>{
+    return this.tokenModel.find(req).exec();
+  }
 }
