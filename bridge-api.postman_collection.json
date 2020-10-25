@@ -1,0 +1,229 @@
+{
+	"variables": [],
+	"info": {
+		"name": "bridge-api",
+		"_postman_id": "2c695332-7fa2-422a-b126-72ce16eb6962",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "transactions",
+			"description": "",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"url": "{{host}}:{{port}}/transactions",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"txid\": '',\n\"from\":\"3232323\",\n\"to\": \"32323\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"url": "",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tokens",
+			"description": "",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"url": "{{host}}:{{port}}/transactions",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"txid\": '',\n\"from\":\"3232323\",\n\"to\": \"32323\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"url": "",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get by holder",
+					"request": {
+						"url": "",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "wallets",
+			"description": "",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"url": "{{host}}:{{port}}/transactions",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"txid\": '',\n\"from\":\"3232323\",\n\"to\": \"32323\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"url": "",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get by holder",
+					"request": {
+						"url": "",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bridges",
+			"description": "",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"url": "{{host}}:{{port}}/bridges",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"txid\": \"0x2273396520207a5209b5adad08c9be11ce8c377f\",\n\"from\":\"0xe65fc70d266f4250e6d66212057f3a51205b8a2c\",\n\"to\": \"0x2273396520207a5209b5adad08c9be11ce8c377f\",\n\"token\":\"0x2273396520207a5209b5adad08c9be11ce8c377f\",\n\"value\":10\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"url": "",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get by (from, token)",
+					"request": {
+						"url": "",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accounts",
+			"description": "",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"url": "{{host}}:{{port}}/transactions",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"txid\": '',\n\"from\":\"3232323\",\n\"to\": \"32323\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"url": "",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
