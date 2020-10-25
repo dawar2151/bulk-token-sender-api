@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsEthereumAddress } from 'class-validator';
+import { IsEthereumAddress } from 'class-validator';
 
 export class CreateAccountDto {
   

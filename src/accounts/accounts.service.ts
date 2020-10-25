@@ -16,5 +16,7 @@ export class AccountsService {
   async findAll(): Promise<Account[]> {
     return this.accountModel.find().exec();
   }
-  
+  async find(req): Promise<any> {
+    return await this.accountModel.find(req).exec();
+  }
 }

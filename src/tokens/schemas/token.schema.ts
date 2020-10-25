@@ -8,9 +8,9 @@ export class Token {
 
   
   @Prop({ required: true})
-  wallet: string;
+  holder: string;//holder
 
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true })
   address: string;
 
   @Prop({ required: true })

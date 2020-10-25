@@ -16,5 +16,11 @@ export class WalletsService {
   async findAll(): Promise<Wallet[]> {
     return this.walletModel.find().exec();
   }
+  async findbyHolder(holder:string): Promise<Wallet[]>{
+    return this.walletModel.find({holder: holder}).exec();
+  }
+  async find(req): Promise<any> {
+    return await this.walletModel.find(req).exec();
+  }
   
 }

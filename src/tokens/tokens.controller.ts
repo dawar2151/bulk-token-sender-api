@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { TokensService } from './tokens.service';
 import { CreateTokenDto } from './dto/create-token.dto';
 import { Token } from './schemas/token.schema';
@@ -12,8 +12,13 @@ export class TokensController {
     await this.tokensService.create(createTransactionDto);
   }
 
-  @Get()
+  @Get('all')
   async findAll(): Promise<Token[]> {
     return this.tokensService.findAll();
   }
+  @Get('holder')
+  async findByHolder(@Query('holder') holder: string): Promise<Token[]> {
+    return this.tokensService.find({holder: holder});
+  }
+
 }  

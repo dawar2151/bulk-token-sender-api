@@ -6,7 +6,7 @@ export type AccountDocument = Account & Document;
 @Schema()
 export class Account {
 
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true })
   address: string;
 
 }

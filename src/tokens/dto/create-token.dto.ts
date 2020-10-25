@@ -2,7 +2,7 @@ import { IsNotEmpty, IsEthereumAddress } from 'class-validator';
 
 export class CreateTokenDto {
     @IsEthereumAddress()
-    readonly wallet: string;//owner
+    readonly holder: string;//owner
 
     @IsEthereumAddress()
     readonly address: string;

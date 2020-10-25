@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, HttpStatus, HttpException } from '@nestjs/common';
 import { AccountsService } from './accounts.service';
 import { CreateAccountDto } from './dto/create-account.dto';
 import { Account } from './schemas/account.schema';
@@ -8,8 +8,12 @@ export class AccountsController {
   constructor(private readonly accountsService: AccountsService) {}
 
   @Post()
-  async create(@Body() createTransactionDto: CreateAccountDto) {
-    await this.accountsService.create(createTransactionDto);
+  async create(@Body() createAccountDto: CreateAccountDto) {
+    let address = await this.accountsService.find({address: createAccountDto.address});
+    if(address){
+      throw new HttpException('Address already exists', HttpStatus.BAD_REQUEST);
+    }
+    await this.accountsService.create(createAccountDto);
   }
 
   @Get()

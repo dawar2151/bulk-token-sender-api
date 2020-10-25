@@ -9,10 +9,10 @@ export class Wallet {
   @Prop({ required: true})
   holder: string;
 
-  @Prop({ required: true })
+  @Prop({ required: true,unique: true })
   address: string;
 
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true })
   privateKey: string;
 
 }
