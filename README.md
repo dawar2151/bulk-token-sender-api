@@ -15,7 +15,7 @@ npm run start
 ```
 # Test
 ```sh
-curl http://localhost:3000/transactions
+curl http://host:port/transactions
 ```
 # Test all endpoints
 

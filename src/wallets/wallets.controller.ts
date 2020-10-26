@@ -9,11 +9,15 @@ export class WalletsController {
 
   @Post()
   async create(@Body() createWalletDto: CreateWalletDto) {
-    let address = await this.walletsService.find({address: createWalletDto.address});
-    if(address){
+    let wallet = await this.walletsService.findOne({address: createWalletDto.address});
+    if(wallet){
       throw new HttpException('Address already exists', HttpStatus.BAD_REQUEST);
     }
-    await this.walletsService.create(createWalletDto);
+    return this.walletsService.create(createWalletDto);
+  }
+  @Post('bulk')
+  async bulkCreate(@Body() createWalletsDto: CreateWalletDto[]) {
+    return this.walletsService.bulkCreate(createWalletsDto);
   }
 
   @Get('all')
@@ -25,4 +29,5 @@ export class WalletsController {
   async find(@Query('holder') holder: string):Promise<Wallet[]>{
     return this.walletsService.find({holder:holder});
   }
+
 }  

@@ -19,4 +19,7 @@ export class BridgesService {
   async find(req): Promise<Bridge []>{
     return this.tokenModel.find(req).exec();
   }
+  async findOne(req): Promise<Bridge>{
+    return this.tokenModel.findOne(req).exec();
+  }
 }

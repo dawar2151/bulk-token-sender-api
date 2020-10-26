@@ -14,10 +14,13 @@ export class TokensService {
   }
 
   async findAll(): Promise<Token[]> {
-    return this.tokenModel.find().exec();
+    return await this.tokenModel.find().exec();
   }
   async find(req): Promise<any> {
     return await this.tokenModel.find(req).exec();
+  }
+  async findOne(req): Promise<any> {
+    return await this.tokenModel.findOne(req).exec();
   }
   
 }

@@ -20,7 +20,18 @@ export class WalletsService {
     return this.walletModel.find({holder: holder}).exec();
   }
   async find(req): Promise<any> {
-    return await this.walletModel.find(req).exec();
+    return this.walletModel.find(req).exec();
   }
-  
+  async findOne(req): Promise<Wallet> {
+    return this.walletModel.findOne(req).exec();
+  }
+  async bulkCreate(createWalletsDto: CreateWalletDto[]): Promise<Wallet[]> {
+    const createdWallets = []
+    for(let item of createWalletsDto){
+      const createdWallet = new this.walletModel(item);
+      console.log(createdWallet);
+      createdWallets.push(createdWallet.save());
+    }
+    return createdWallets
+  }
 }

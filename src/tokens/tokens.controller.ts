@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query, HttpException, HttpStatus } from '@nestjs/common';
 import { TokensService } from './tokens.service';
 import { CreateTokenDto } from './dto/create-token.dto';
 import { Token } from './schemas/token.schema';
@@ -8,8 +8,12 @@ export class TokensController {
   constructor(private readonly tokensService: TokensService) {}
 
   @Post()
-  async create(@Body() createTransactionDto: CreateTokenDto) {
-    await this.tokensService.create(createTransactionDto);
+  async create(@Body() createTokenDto: CreateTokenDto) {
+    let token = await this.tokensService.findOne({address: createTokenDto.address});
+    if(token){
+      throw new HttpException('Token already exists', HttpStatus.BAD_REQUEST);
+    }
+    await this.tokensService.create(createTokenDto);
   }
 
   @Get('all')
@@ -20,5 +24,6 @@ export class TokensController {
   async findByHolder(@Query('holder') holder: string): Promise<Token[]> {
     return this.tokensService.find({holder: holder});
   }
+
 
 }  

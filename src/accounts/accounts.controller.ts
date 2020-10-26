@@ -9,8 +9,8 @@ export class AccountsController {
 
   @Post()
   async create(@Body() createAccountDto: CreateAccountDto) {
-    let address = await this.accountsService.find({address: createAccountDto.address});
-    if(address){
+    let account = await this.accountsService.findOne({address: createAccountDto.address});
+    if(account){
       throw new HttpException('Address already exists', HttpStatus.BAD_REQUEST);
     }
     await this.accountsService.create(createAccountDto);
@@ -20,4 +20,5 @@ export class AccountsController {
   async findAll(): Promise<Account[]> {
     return this.accountsService.findAll();
   }
+  
 }  
