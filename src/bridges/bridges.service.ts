@@ -6,20 +6,29 @@ import { CreateBridgeDto } from './dto/create-bridge.dto';
 
 @Injectable()
 export class BridgesService {
-  constructor(@InjectModel(Bridge.name) private tokenModel: Model<BridgeDocument>) {}
+  constructor(@InjectModel(Bridge.name) private bridgeModel: Model<BridgeDocument>) {}
 
   async create(createBridgeDto: CreateBridgeDto): Promise<Bridge> {
-    const createdBridge = new this.tokenModel(createBridgeDto);
+    const createdBridge = new this.bridgeModel(createBridgeDto);
     return createdBridge.save();
   }
 
   async findAll(): Promise<Bridge[]> {
-    return this.tokenModel.find().exec();
+    return this.bridgeModel.find().exec();
   }
   async find(req): Promise<Bridge []>{
-    return this.tokenModel.find(req).exec();
+    return this.bridgeModel.find(req).exec();
   }
   async findOne(req): Promise<Bridge>{
-    return this.tokenModel.findOne(req).exec();
+    return this.bridgeModel.findOne(req).exec();
+  }
+  async bulkCreate(createBridgesDto: CreateBridgeDto[]): Promise<Bridge[]> {
+    const createdBridges = []
+    for(let item of createBridgesDto){
+      const createdBridge = new this.bridgeModel(item);
+      console.log(createdBridge);
+      createdBridges.push(createdBridge.save());
+    }
+    return createdBridges
   }
 }

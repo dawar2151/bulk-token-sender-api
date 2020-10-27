@@ -21,6 +21,9 @@ export class Bridge {
   @Prop({ required: true })
   value: number;
 
+  @Prop({default: Date.now})
+  created_at: Date
+
 }
 
 export const BridgeSchema = SchemaFactory.createForClass(Bridge);

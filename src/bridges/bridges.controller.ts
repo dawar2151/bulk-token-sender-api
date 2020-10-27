@@ -5,19 +5,23 @@ import { Bridge } from './schemas/bridge.schema';
 
 @Controller('bridges')
 export class BridgesController {
-  constructor(private readonly tokensService: BridgesService) {}
+  constructor(private readonly bridgesService: BridgesService) {}
 
   @Post()
   async create(@Body() createTransactionDto: CreateBridgeDto) {
-    await this.tokensService.create(createTransactionDto);
+    await this.bridgesService.create(createTransactionDto);
   }
 
   @Get('all')
   async findAll(): Promise<Bridge[]> {
-    return this.tokensService.findAll();
+    return this.bridgesService.findAll();
   }
   @Get('holder')
   async find(@Query('from') from: string, @Query('token') token: string):Promise<Bridge[]>{
-    return this.tokensService.find({from:from, token:token});
+    return this.bridgesService.find({from:from, token:token});
+  }
+  @Post('bulk')
+  async bulkCreate(@Body() createBridgesDto: CreateBridgeDto[]) {
+    return this.bridgesService.bulkCreate(createBridgesDto);
   }
 }  
