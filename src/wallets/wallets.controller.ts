@@ -26,8 +26,8 @@ export class WalletsController {
   }
 
   @Get('holder')
-  async find(@Query('holder') holder: string):Promise<Wallet[]>{
-    return this.walletsService.find({holder:holder});
+  async find(@Query('holder') holder: string, @Query('created_at') created_at: string, @Query('limit') limit: string):Promise<Wallet[]>{
+    return this.walletsService.find({holder:holder, created_at: created_at}, limit);
   }
 
 }  
